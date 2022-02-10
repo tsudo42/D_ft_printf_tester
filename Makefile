@@ -5,10 +5,15 @@ LIBFTPRINTF	:= ../libftprintf.a
 #---------------------------------------------------------------------------#
 
 SRCS	:= \
-	srcs/D_main.c
+	srcs/D_main.c \
+	srcs/D_test_no_convert.c \
+	srcs/D_test_c.c \
+	srcs/D_test_d.c \
+	srcs/D_test_i.c \
+	srcs/D_test_u.c \
 
 B_SRCS	:= \
-	srcs/D_main_bonus.c
+	srcs/D_main_bonus.c \
 
 #---------------------------------------------------------------------------#
 
@@ -17,6 +22,10 @@ CC		:= gcc
 CFLAGS	+= -Wall -Wextra -Werror -g -fsanitize=address
 OBJS	= $(SRCS:%.c=%.o)
 RM		:= rm -f
+
+ifdef MYCFLAG
+CFLAGS += $(MYCFLAG)
+endif
 
 ifdef BONUS
 SRCS := $(B_SRCS)
@@ -31,7 +40,7 @@ else
 	make -C $(dir $(LIBFTPRINTF))
 	touch srcs/D_main_bonus.c
 endif
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBFTPRINTF)
 
 .PHONY: all
 all: $(NAME)
