@@ -6,7 +6,7 @@
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:35:26 by tsudo             #+#    #+#             */
-/*   Updated: 2022/02/10 16:11:21 by tsudo            ###   ##########        */
+/*   Updated: 2022/02/10 17:41:11 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <errno.h>
 # include <stdio.h>
 # include <string.h>
-
 
 # ifdef ORIGINAL_ONLY
 # define TEST(fmt, ...) { \
