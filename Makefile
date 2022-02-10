@@ -8,9 +8,12 @@ SRCS	:= \
 	srcs/D_main.c \
 	srcs/D_test_no_convert.c \
 	srcs/D_test_c.c \
+	srcs/D_test_s.c \
+	srcs/D_test_p.c \
 	srcs/D_test_d.c \
 	srcs/D_test_i.c \
 	srcs/D_test_u.c \
+	srcs/D_test_x.c \
 
 B_SRCS	:= \
 	srcs/D_main_bonus.c \
@@ -53,7 +56,8 @@ $(LIBFTPRINTF):
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS)
+	$(RM) $(B_SRCS:%.c=%.o)
 
 .PHONY: fclean
 fclean: clean

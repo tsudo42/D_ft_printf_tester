@@ -6,7 +6,7 @@
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:54:11 by tsudo             #+#    #+#             */
-/*   Updated: 2022/02/10 16:19:31 by tsudo            ###   ##########        */
+/*   Updated: 2022/02/10 16:35:31 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int	main(void)
 {
 	test_no_convert();
 	test_c();
+	test_s();
+	test_p();
 	test_d();
 	test_i();
 	test_u();
+	test_x();
 	return (0);
 }
