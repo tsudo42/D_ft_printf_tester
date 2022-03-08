@@ -6,7 +6,7 @@
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:59:50 by tsudo             #+#    #+#             */
-/*   Updated: 2022/02/10 16:37:37 by tsudo            ###   ##########        */
+/*   Updated: 2022/03/08 15:34:14 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ void	test_p(void)
 	TEST("%p", (void *)(UINT_MAX / 10));
 	TEST("%p", (void *)(UINT_MAX / 100));
 	test_memory();
+}
+
+void	test_p_bonus(void)
+{
+	test_p();
 }

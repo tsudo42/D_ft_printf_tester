@@ -6,7 +6,7 @@
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:47:49 by tsudo             #+#    #+#             */
-/*   Updated: 2022/02/10 16:11:29 by tsudo            ###   ##########        */
+/*   Updated: 2022/03/08 15:36:22 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,11 @@ void	test_no_convert(void)
 	TEST_NC("a");
 	TEST_NC("%% %%");
 	TEST_NC("abcdef %% ghijklmn %% opqrstu");
+	test_memory();
+}
+
+void	test_no_convert_bonus(void)
+{
+	test_no_convert();
 	test_memory();
 }

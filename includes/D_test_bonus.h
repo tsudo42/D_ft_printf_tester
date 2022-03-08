@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   D_test.h                                           :+:      :+:    :+:   */
+/*   D_test_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:54:29 by tsudo             #+#    #+#             */
-/*   Updated: 2022/02/10 17:41:16 by tsudo            ###   ##########        */
+/*   Updated: 2022/03/08 15:35:25 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef D_TEST_H
-# define D_TEST_H
+#ifndef D_TEST_BONUS_H
+# define D_TEST_BONUS_H
 
-# include <limits.h>
 # include "D_compare.h"
 
-# define D_BUFFER_SIZE 42
-
-int		ft_printf(const char *fmt, ...);
-
-void	test_no_convert(void);
-void	test_c(void);
-void	test_s(void);
-void	test_p(void);
-void	test_d(void);
-void	test_i(void);
-void	test_u(void);
-void	test_x(void);
+void	test_p_bonus(void);
+void	test_no_convert_bonus(void);
+void	test_hand_bonus(void);
 
 #endif

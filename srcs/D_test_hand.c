@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   D_main_bonus.c                                     :+:      :+:    :+:   */
+/*   D_test_hand.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 14:20:10 by tsudo             #+#    #+#             */
-/*   Updated: 2022/03/08 15:36:32 by tsudo            ###   ##########        */
+/*   Created: 2022/03/08 15:26:21 by tsudo             #+#    #+#             */
+/*   Updated: 2022/03/08 15:29:18 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "D_test_bonus.h"
+#include "D_compare.h"
 
-/* notimplemented */
-int	main(void)
+void	test_hand(void)
 {
-	test_p_bonus();
-	test_no_convert_bonus();
-	return (0);
+	return ;
+}
+
+void	test_hand_bonus(void)
+{
+	return ;
 }

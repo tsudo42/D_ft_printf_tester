@@ -1,74 +1,104 @@
-#---------------------------------------------------------------------------#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/05 23:50:33 by tsudo             #+#    #+#              #
+#    Updated: 2022/03/08 15:39:39 by tsudo            ###   ##########         #
+#                                                                              #
+# **************************************************************************** #
 
-LIBFTPRINTF	:= ../libftprintf.a
+TARGET	:= ../libftprintf.a
 
-#---------------------------------------------------------------------------#
+# **************************************************************************** #
 
-SRCS	:= \
+NAME	:= test.out
+B_NAME	:= test_bonus.out
+CC		:= gcc
+CFLAGS	:= -Wall -Wextra -Werror -MMD -MP -g -fsanitize=address
+RM		:= rm -f
+
+# **************************************************************************** #
+
+SRCS	+= $(M_SRCS)
+M_SRCS	:= \
 	srcs/D_main.c \
-	srcs/D_test_no_convert.c \
+
+SRCS	+= $(U_SRCS)
+U_SRCS	:= \
+	srcs/D_test_u.c \
+	srcs/D_test_i.c \
 	srcs/D_test_c.c \
+	srcs/D_test_x.c \
+	srcs/D_test_d.c \
 	srcs/D_test_s.c \
 	srcs/D_test_p.c \
-	srcs/D_test_d.c \
-	srcs/D_test_i.c \
-	srcs/D_test_u.c \
-	srcs/D_test_x.c \
+	srcs/D_test_no_convert.c \
+	srcs/D_test_hand.c \
 
+SRCS	+= $(B_SRCS)
 B_SRCS	:= \
 	srcs/D_main_bonus.c \
 
-#---------------------------------------------------------------------------#
+INCS	:= \
+	includes \
 
-NAME	:= test.out
-CC		:= gcc
-CFLAGS	+= -Wall -Wextra -Werror -g -fsanitize=address
-OBJS	= $(SRCS:%.c=%.o)
-RM		:= rm -f
+# **************************************************************************** #
 
-ifdef MYCFLAG
-CFLAGS += $(MYCFLAG)
-endif
+M_OBJS	= $(patsubst %.c,objs/%.o, $(notdir $(M_SRCS)))
+U_OBJS	= $(patsubst %.c,objs/%.o, $(notdir $(U_SRCS)))
+B_OBJS	= $(patsubst %.c,objs/%.o, $(notdir $(B_SRCS)))
+OBJS	= $(M_OBJS) $(U_OBJS) $(B_OBJS)
+DEPS	= $(OBJS:.o=.d)
+CFLAGS	+= $(addprefix -I,$(INCS))
+vpath %.c $(sort $(dir $(SRCS)))
 
-ifdef BONUS
-SRCS := $(B_SRCS)
-endif
+CFLAGS	+= $(MYCFLAGS)
 
-#---------------------------------------------------------------------------#
+# **************************************************************************** #
 
-$(NAME): $(OBJS)
-ifdef BONUS
-	make -C $(dir $(LIBFTPRINTF)) bonus
-else
-	make -C $(dir $(LIBFTPRINTF))
-	touch srcs/D_main_bonus.c
-endif
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBFTPRINTF)
+$(NAME): $(M_OBJS) $(U_OBJS) $(TARGET)
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(B_NAME): $(B_OBJS) $(U_OBJS) $(TARGET)
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(TARGET):
+	make -C $(@D)
 
 .PHONY: all
 all: $(NAME)
 
-%.o: %.c
+.PHONY: _all
+_all: $(NAME) $(B_NAME)
+
+-include $(DEPS)
+
+objs/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(LIBFTPRINTF):
+$(LIBFT):
 	make -C $(@D)
 
 .PHONY: clean
 clean:
 	$(RM) $(OBJS)
-	$(RM) $(B_SRCS:%.c=%.o)
+	$(RM) $(DEPS)
 
 .PHONY: fclean
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(B_NAME)
+
+.PHONY: fclean_target
+fclean_target:
+	make fclean -C $(dir $(TARGET))
 
 .PHONY: re
 re: fclean all
 
 .PHONY: bonus
-bonus:
-	touch srcs/D_main.c
-	make BONUS=1
+bonus: $(B_NAME)
 
-#---------------------------------------------------------------------------#
+# **************************************************************************** #
