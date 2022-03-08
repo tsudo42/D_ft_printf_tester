@@ -6,7 +6,7 @@
 /*   By: tsudo <tsudo@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:54:29 by tsudo             #+#    #+#             */
-/*   Updated: 2022/03/08 15:27:25 by tsudo            ###   ##########        */
+/*   Updated: 2022/03/08 16:23:01 by tsudo            ###   ##########        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "D_compare.h"
 
 # define D_BUFFER_SIZE 42
-
-int		ft_printf(const char *fmt, ...);
 
 void	test_no_convert(void);
 void	test_c(void);
