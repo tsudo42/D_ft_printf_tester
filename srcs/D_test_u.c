@@ -44,3 +44,7 @@ void	test_u(void)
 	TEST("%u", UINT_MAX / 100);
 	test_memory();
 }
+
+void	test_u_bonus(void)
+{
+}

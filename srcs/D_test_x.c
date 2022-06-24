@@ -65,3 +65,7 @@ void	test_x(void)
 	test_lowercase();
 	test_memory();
 }
+
+void	test_x_bonus(void)
+{
+}

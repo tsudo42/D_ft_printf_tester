@@ -46,3 +46,7 @@ void	test_d(void)
 	TEST("%d", INT_MIN / 100);
 	test_memory();
 }
+
+void	test_d_bonus(void)
+{
+}

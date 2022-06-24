@@ -39,3 +39,7 @@ void	test_s(void)
 		234567890123456789");
 	test_memory();
 }
+
+void	test_s_bonus(void)
+{
+}

@@ -42,3 +42,7 @@ void	test_c(void)
 	TEST("%c%c%c", 'a', 'b', 'c');
 	test_memory();
 }
+
+void	test_c_bonus(void)
+{
+}
